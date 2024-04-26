@@ -1,37 +1,37 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-
-import Register from "./components/Register";
-import Header from "./components/Header";
+import { ProtectedRoute } from './router/ProtectedRoute';
 import Login from "./components/Login";
 import { UserContext } from "./context/UserContext";
-import useCurrentUserLogged from "./hooks/useCurrentUserLogged";
+import BarraNavegacion from "./components/BarraNavegacion";
+
+import Inicio from './pages/Inicio.js';
+
+//<Route path="/admin" element={<Admin />} />
+	
 
 const App = () => {	
 	
 	const [message, setMessage] = useState("");
-	const {token} = useContext(UserContext);  
-	const {currentuser} = useContext(UserContext);  
+	const {token, currentuser} = useContext(UserContext); 
 	
 	return (
-		<>					
-			<Header title={"My app for simple access login"} />
-			<div className="columns">
-				<div className="columns"></div>
-				<div className="columns m-5 is-two-thirds">				
-				{
-					!token ? (
-						<div className="columns">
-							< Register /> < Login />
-						</div>
-					) : (				
-						currentuser.role
-					)
-				}
+		<>			
+			<BarraNavegacion />
+			<Login />
+			{token && (				
+				<div>							
+					<Routes>
+						<Route index element={<Inicio />} />
+						<Route path="/" element={<Inicio />} />					
+						<Route element={<ProtectedRoute isAllowed={ true } />}>
+						</Route>			
+						<Route path="*" element={<p>There's nothing here: 404!</p>} />
+					</Routes>						
 				</div>
-				<div className="columns"></div>				
-			</div>
+			)}
+				
 		</>
 	);
 };

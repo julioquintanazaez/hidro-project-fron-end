@@ -8,7 +8,7 @@ const Header = ({ title }) => {
 	
 	const handleLogout =() => {
 		setToken(null);
-		window.localStorage.removeItem("awesomeLeadsToken");
+		window.localStorage.removeItem("hidro-application-v1.0");
 	};
 	
 	return (

@@ -11,10 +11,10 @@ axios.defaults.baseURL =  "http://localhost:8000";
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
-root.render(			
-	
-	<UserProvider>	
-		< App />		
-	</UserProvider>
-	
+root.render(	
+	< BrowserRouter	>
+		<UserProvider>	
+			< App />		
+		</UserProvider>	
+	</ BrowserRouter	>
 );
