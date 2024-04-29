@@ -4,17 +4,16 @@ import { UserContext } from "../context/UserContext";
 
 const Logout = () => {
 	
-	const {token, setToken, handleLogout} = useContext(UserContext); 
+	const {token, handleLogout} = useContext(UserContext); 
 	
 	return (
-		<div className="has-text-centered m-6">			
-			{token && (
-					<button className="button" onClick={handleLogout}>
-						Salir 
-					</button>
-				)
-			}	
-		</div>
+		<>		
+			{token && (				
+				<a className="button is-danger" onClick={handleLogout}>
+					Salir
+				</a>
+			)}	
+		</>
 	);
 };
 

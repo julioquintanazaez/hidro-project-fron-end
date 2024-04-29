@@ -1,36 +1,36 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { UserContext } from "../context/UserContext";
 import axios from 'axios'; 
 
-export default function useCurrentUserLogged(){
+export default function useLoadEstaciones(){
 	
 	const {token} = useContext(UserContext);
-	const refUser = useRef();	
+	const [estaciones, setEstaciones] = useState([]);	
 	
 	useEffect(() => {
 		
-		const fetchUser = async () =>{
+		const fetchEstaciones = async () =>{
 			await axios({
 				method: 'get',
-				url: '/users/me/',                         
+				url: '/leer_estaciones/',                         
 				headers: {
 					'accept': 'application/json',
 					'Authorization': "Bearer " + token,  
 				},
 			}).then(response => {
-				if (response.status === 200) {
-					refUser.current = response.data;
+				if (response.status === 201) {
+					setEstaciones(response.data);
 				}else {	
-					refUser.current = null;
+					setEstaciones([]);
 				}
 			}).catch((error) => {
 				console.error({"message":error.message, "detail":error.response.data.detail});
 			});		
 		};		
 		
-		fetchUser();
+		fetchEstaciones();
 		
-	}, [token]);
+	}, []);
 	
-	return refUser.current;
+	return estaciones;
 };

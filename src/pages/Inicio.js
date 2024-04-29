@@ -15,7 +15,7 @@ const Inicio = () => {
 		
 		<div className="container-fluid-md">			
 			
-			<Logout />
+			
 			
 		</div>		
 			
