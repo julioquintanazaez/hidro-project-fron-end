@@ -53,6 +53,10 @@ const BarraNavegacion = ( props ) => {
 										<a className="navbar-item" href="/datos">
 											Entrada de datos
 										</a>
+										<hr className="navbar-divider"/>
+										<a className="navbar-item" href="/cargardatos">
+											Leer fichero de datos
+										</a>
 									</div>
 								</div>
 							</div>

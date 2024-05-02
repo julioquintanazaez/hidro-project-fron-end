@@ -20,7 +20,8 @@ export default function AddProvincia ( ) {
 				'Authorization': "Bearer " + token,
 			},
 			data: {
-				nombre_provincia : formik.values.nombre_provincia 
+				nombre_provincia : formik.values.nombre_provincia,
+				codigo_provincia : formik.values.codigo_provincia
 			},			
 		}).then(response => {
 			if (response.status === 201) {						
@@ -37,11 +38,14 @@ export default function AddProvincia ( ) {
 	
 	const validationRules = Yup.object().shape({
 		nombre_provincia: Yup.string().trim()
-			.required("Se requiere el nombre de la provincia")
+			.required("Se requiere el nombre de la provincia"),
+		codigo_provincia: Yup.string().trim()
+			.required("Se requiere el código de la provincia")
 	});
 	
 	const registerInitialValues = {
-		nombre_provincia: ''
+		nombre_provincia: '',
+		codigo_provincia: ''
 	};
 	
 	const formik = useFormik({
@@ -78,6 +82,25 @@ export default function AddProvincia ( ) {
 							  placeholder="Introduzca el nombre de la provincia"
 							/>
 							<div>{(formik.errors.nombre_provincia) ? <p style={{color: 'red'}}>{formik.errors.nombre_provincia}</p> : null}</div>
+						</div>
+					</div>
+					<div className="field">
+						<label className="label">Código</label>
+						<div className="control">
+							<input
+							  type="text"
+							  name="codigo_provincia"
+							  value={formik.values.codigo_provincia}
+							  onChange={formik.handleChange}
+							  onBlur={formik.handleBlur}
+							  className={"input" + 
+											(formik.errors.codigo_provincia && formik.touched.codigo_provincia
+											? "is-invalid"
+											: ""
+										)}
+							  placeholder="Introduzca el código de la provincia"
+							/>
+							<div>{(formik.errors.codigo_provincia) ? <p style={{color: 'red'}}>{formik.errors.codigo_provincia}</p> : null}</div>
 						</div>
 					</div>
 					<br/>

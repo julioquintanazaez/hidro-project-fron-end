@@ -23,6 +23,10 @@ export default function AddEstacion ( props ) {
 			},
 			data: {
 				nombre_estacion : formik.values.nombre_estacion,
+				codigo_estacion : formik.values.codigo_estacion,
+				altura_estacion : formik.values.altura_estacion,
+				norte_estacion : formik.values.norte_estacion,
+				sur_estacion : formik.values.sur_estacion,
 				municipio_id: formik.values.municipio_id
 			},			
 		}).then(response => {
@@ -41,12 +45,24 @@ export default function AddEstacion ( props ) {
 	const validationRules = Yup.object().shape({
 		nombre_estacion: Yup.string().trim()
 			.required("Se requiere el nombre de la estacion"),
+		codigo_estacion: Yup.string().trim()
+			.required("Se requiere el codigo de la estacion"),
+		altura_estacion: Yup.string().trim()
+			.required("Se requiere la altura de la estacion"),
+		norte_estacion: Yup.string().trim()
+			.required("Se requiere la posición norte de la estacion"),
+		sur_estacion: Yup.string().trim()
+			.required("Se requiere la posición sur de la estacion"),
 		municipio_id: Yup.string().trim()
 			.required("Se requiere seleccione un municipio")
 	});
 	
 	const registerInitialValues = {
 		nombre_estacion: '',
+		codigo_estacion: '',
+		altura_estacion: '',
+		norte_estacion: '',
+		sur_estacion: '',
 		municipio_id: '' 
 	};
 	
@@ -93,6 +109,82 @@ export default function AddEstacion ( props ) {
 							  placeholder="Introduzca el nombre de la estación"
 							/>
 							<div>{(formik.errors.nombre_estacion) ? <p style={{color: 'red'}}>{formik.errors.nombre_estacion}</p> : null}</div>
+						</div>
+					</div>
+					<div className="field">
+						<label className="label">Código</label>
+						<div className="control">
+							<input
+							  type="text"
+							  name="codigo_estacion"
+							  value={formik.values.codigo_estacion}
+							  onChange={formik.handleChange}
+							  onBlur={formik.handleBlur}
+							  className={"input" + 
+											(formik.errors.codigo_estacion && formik.touched.codigo_estacion
+											? "is-invalid"
+											: ""
+										)}
+							  placeholder="Introduzca el código de la estación"
+							/>
+							<div>{(formik.errors.codigo_estacion) ? <p style={{color: 'red'}}>{formik.errors.codigo_estacion}</p> : null}</div>
+						</div>
+					</div>
+					<div className="field">
+						<label className="label">Altura</label>
+						<div className="control">
+							<input
+							  type="text"
+							  name="altura_estacion"
+							  value={formik.values.altura_estacion}
+							  onChange={formik.handleChange}
+							  onBlur={formik.handleBlur}
+							  className={"input" + 
+											(formik.errors.altura_estacion && formik.touched.altura_estacion
+											? "is-invalid"
+											: ""
+										)}
+							  placeholder="Introduzca la altura de la estación"
+							/>
+							<div>{(formik.errors.altura_estacion) ? <p style={{color: 'red'}}>{formik.errors.altura_estacion}</p> : null}</div>
+						</div>
+					</div>
+					<div className="field">
+						<label className="label">Posición Norte</label>
+						<div className="control">
+							<input
+							  type="text"
+							  name="norte_estacion"
+							  value={formik.values.norte_estacion}
+							  onChange={formik.handleChange}
+							  onBlur={formik.handleBlur}
+							  className={"input" + 
+											(formik.errors.norte_estacion && formik.touched.norte_estacion
+											? "is-invalid"
+											: ""
+										)}
+							  placeholder="Introduzca la posición norte de la estación"
+							/>
+							<div>{(formik.errors.norte_estacion) ? <p style={{color: 'red'}}>{formik.errors.norte_estacion}</p> : null}</div>
+						</div>
+					</div>
+					<div className="field">
+						<label className="label">Posición Sur</label>
+						<div className="control">
+							<input
+							  type="text"
+							  name="sur_estacion"
+							  value={formik.values.sur_estacion}
+							  onChange={formik.handleChange}
+							  onBlur={formik.handleBlur}
+							  className={"input" + 
+											(formik.errors.sur_estacion && formik.touched.sur_estacion
+											? "is-invalid"
+											: ""
+										)}
+							  placeholder="Introduzca la posición sur de la estación"
+							/>
+							<div>{(formik.errors.sur_estacion) ? <p style={{color: 'red'}}>{formik.errors.sur_estacion}</p> : null}</div>
 						</div>
 					</div>
 					<div className="form-group mt-3" id="municipio_id">

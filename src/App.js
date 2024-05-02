@@ -13,6 +13,7 @@ import Estaciones from './pages/Estaciones.js';
 import Datos from './pages/Datos.js';
 import Usuarios from './pages/Usuarios.js';
 import Precipitaciones from './pages/Precipitaciones.js';
+import CargarDatos from './pages/CargarDatos.js';
 
 
 const App = () => {	
@@ -38,6 +39,7 @@ const App = () => {
 							<Route path="/estaciones" element={<Estaciones />} />
 							<Route path="/datos" element={<Datos />} />
 							<Route path="/usuarios" element={<Usuarios />} />
+							<Route path="/cargardatos" element={<CargarDatos />} />
 						</Route>			
 						<Route path="*" element={<p>There's nothing here: 404!</p>} />
 					</Routes>						

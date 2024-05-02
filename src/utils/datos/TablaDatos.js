@@ -37,7 +37,12 @@ const TableDatos = ( props ) => {
 			<tr key={dato.id_dato}>
 				<td>{dato.nombre_estacion}</td>
 				<td>{moment(dato.dato_fecha).format("MMM Do YY")}</td>
-				<td>{dato.dato_valor}</td>							
+				<td>{dato.dato_valor}</td>	
+				<td>{dato.nombre_estacion}</td>	
+				<td>{dato.codigo_estacion}</td>	
+				<td>{dato.altura_estacion}</td>	
+				<td>{dato.norte_estacion}</td>	
+				<td>{dato.sur_estacion}</td>	
 				{renderButones( dato )}
 			</tr>
 		));		
@@ -48,7 +53,12 @@ const TableDatos = ( props ) => {
 			<tr key={dato.id_dato}>
 				<td>{dato.nombre_estacion}</td>
 				<td>{moment(dato.dato_fecha).format("MMM Do YY")}</td>
-				<td>{dato.dato_valor}</td>							
+				<td>{dato.dato_valor}</td>		
+				<td>{dato.nombre_estacion}</td>	
+				<td>{dato.codigo_estacion}</td>	
+				<td>{dato.altura_estacion}</td>	
+				<td>{dato.norte_estacion}</td>	
+				<td>{dato.sur_estacion}</td>	
 				{renderButones( dato )}
 			</tr>
 		));
@@ -75,6 +85,11 @@ const TableDatos = ( props ) => {
 									<th>Estación</th>
 									<th>Fecha</th>
 									<th>Precipitación</th>
+									<th>Estación</th>
+									<th>Código</th>
+									<th>Altura</th>
+									<th>Norte</th>
+									<th>Sur</th>
 									<th>Acciones</th>
 								</tr>
 							</thead>
