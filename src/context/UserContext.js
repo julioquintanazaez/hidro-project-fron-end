@@ -30,6 +30,7 @@ export const UserProvider = ( props ) => {
 				}
 			}).catch((error) => {
 				console.error({"message":error.message, "detail":error.response.data.detail});
+				window.localStorage.removeItem("hidro-application-v1.0");
 			});		
 		};		
 		

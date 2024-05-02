@@ -12,7 +12,7 @@ export const ProtectedRoute = ({ isAllowed,
 	
 	const location = useLocation();	
 	
-	if (!isAllowed && !token) {
+	if (!isAllowed) {
 		return (
 			<Navigate to={ redirectPath } replace state={{ from: location }} />
 		);

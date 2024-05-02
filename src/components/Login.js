@@ -23,14 +23,17 @@ const Login = () =>{
 			data: form_data,			
 		}).then(response => {
 			if (response.status === 200) {						
-				setToken(response.data.access_token);	
+				setToken(response.data.access_token);
+				console.log(window.localStorage.getItem("hidro-application-v1.0"));
 			}
 			else{
 				setErrorMessage(response.data);
+				window.localStorage.removeItem("hidro-application-v1.0");
 			}
 		}).catch((error) => {
 			console.error({"message":error.message, "detail":error.response.data.detail});
 			Swal.fire("Access denied!", error.response.data.detail, "error");
+			window.localStorage.removeItem("hidro-application-v1.0");
 		});	 		
 	};	
 	
