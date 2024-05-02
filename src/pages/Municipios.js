@@ -8,9 +8,6 @@ const Municipios = ( ) => {
 	
 	const { token, currentuser } = useContext(UserContext);
 	
-	
-	
-	
 	return (
 		<>			
 			<div className="container"><br/> 

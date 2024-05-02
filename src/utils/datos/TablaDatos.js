@@ -78,7 +78,7 @@ const TableDatos = ( props ) => {
 							onChange={(e) => setQuery(e.target.value)}
 						/>
 					</div>
-					<div clasName="box">					
+					<div className="box">					
 						<table className="table is-fullwith">
 							<thead>
 								<tr>

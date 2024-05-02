@@ -2,8 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { ProtectedRoute } from './router/ProtectedRoute';
-import Login from "./components/Login";
 import { UserContext } from "./context/UserContext";
+
+import Login from "./components/Login";
 import BarraNavegacion from "./components/BarraNavegacion";
 
 import Inicio from './pages/Inicio.js';
