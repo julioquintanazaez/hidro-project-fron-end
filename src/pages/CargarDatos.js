@@ -10,7 +10,7 @@ const CargarDatos = ( ) => {
 	
 	return (
 		<>			
-			<div className="container"> <br/>				
+			<div className="container-fluid-md"> <br/>				
 				<div className="columns"><br/>						
 					< CargarFicheros />
 				</div>

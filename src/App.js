@@ -30,14 +30,18 @@ const App = () => {
 				<div className="columns">							
 					<Routes>
 						<Route index element={<Inicio />} />
-						<Route path="/" element={<Inicio />} />							
-						<Route path="/precipitaciones" element={<Precipitaciones />} />
-						<Route path="/provincias" element={<Provincias />} />
-						<Route path="/municipios" element={<Municipios />} />
-						<Route path="/estaciones" element={<Estaciones />} />
-						<Route path="/datos" element={<Datos />} />
-						<Route path="/usuarios" element={<Usuarios />} />
-						<Route path="/cargardatos" element={<CargarDatos />} />
+						<Route path="/" element={<Inicio />} />	
+						<Route element={<ProtectedRoute isAllowed={ true } />}>
+							<Route path="/precipitaciones" element={<Precipitaciones />} />
+						</Route>	
+						<Route element={<ProtectedRoute isAllowed={ true } />}>
+							<Route path="/provincias" element={<Provincias />} />
+							<Route path="/municipios" element={<Municipios />} />
+							<Route path="/estaciones" element={<Estaciones />} />
+							<Route path="/datos" element={<Datos />} />
+							<Route path="/usuarios" element={<Usuarios />} />
+							<Route path="/cargardatos" element={<CargarDatos />} />
+						</Route>			
 						<Route path="*" element={<p>There's nothing here: 404!</p>} />
 					</Routes>						
 				</div>

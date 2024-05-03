@@ -11,7 +11,8 @@ const Estaciones = ( ) => {
 	
 	return (
 		<>			
-			<div className="container">
+			<div className="container-fluid-md">
+			
 				<br/>
 				<div className="columns">					
 					<AddEstacion />											

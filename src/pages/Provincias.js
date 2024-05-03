@@ -13,13 +13,16 @@ const Provincias = ( ) => {
 	
 	return (
 		<>			
-			<div class="container"> 
-				<br/>
+			<div className="container-fluid-md"> 
+				<br/>				
 				<div className="columns">
-				
-					<AddProvincia />					
-										
 				</div>
+				<br/>	
+				<div className="columns m-5 is-two-thirds">		
+					<div className="columns">
+						<AddProvincia />	
+					</div>
+				</div>	
 			</div>		
 		</>	
 	);	

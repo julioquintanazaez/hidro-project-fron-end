@@ -11,9 +11,13 @@ const Inicio = () => {
 	return (
 		
 		<div className="container-fluid-md">			
-			
-			
-			
+			<div className="columns"><br/>						
+				
+			</div>
+			<br/>		
+			<div className="columns"><br/>					
+				
+			</div>
 		</div>		
 			
 	);
